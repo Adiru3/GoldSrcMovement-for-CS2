@@ -2,8 +2,6 @@
 
 Welcome to **GoldSrcMovement**! This CounterStrikeSharp plugin brings back the legendary, fast-paced movement mechanics of Half-Life 1 / Counter-Strike 1.6 (the GoldSrc engine) into modern Counter-Strike 2.
 
-https://www.youtube.com/watch?v=x2EpReU6xWU
-
 Unlike other movement plugins that rely heavily on simulation commands or client-side prediction manipulation, **GoldSrcMovement** achieves Quake-style movement physics using clean, pure C# math and server-side velocity injections, guaranteeing a 100% stable and smooth experience for players without `sv_cheats`.
 
 ## 🚀 Features
@@ -34,6 +32,7 @@ You can enable/disable individual features such as `AutoBhopEnabled`, `RemoveLan
 Plugin created by **Adiru (amazingb01)**.
 - **GitHub**: [Adiru3](https://github.com/Adiru3)
 - **Support & Donate**: [About Me & Donate](https://adiru3.github.io/Donate/)
+
 
 
 
