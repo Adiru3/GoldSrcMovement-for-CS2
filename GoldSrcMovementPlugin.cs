@@ -18,7 +18,7 @@ public class GoldSrcMovementConfig : BasePluginConfig
     public bool PluginEnabled { get; set; } = true;
 
     [JsonPropertyName("AutoBhopEnabled")]
-    public bool AutoBhopEnabled { get; set; } = true;
+    public bool AutoBhopEnabled { get; set; } = false;
 
     [JsonPropertyName("RemoveLandingLag")]
     public bool RemoveLandingLag { get; set; } = true;
@@ -66,6 +66,17 @@ public class GoldSrcMovementPlugin : BasePlugin, IPluginConfig<GoldSrcMovementCo
     {
         Config.PluginEnabled = !Config.PluginEnabled;
         Server.PrintToChatAll($" \x04[GoldSrcMovement]\x01 Plugin is now {(Config.PluginEnabled ? "\x04ENABLED\x01" : "\x02DISABLED\x01")}.");
+        
+        string configPath = Path.Combine(ModuleDirectory, "GoldSrcMovement.json");
+        File.WriteAllText(configPath, JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true }));
+    }
+
+    [ConsoleCommand("css_gsrc_bhop", "Toggle AutoBhop on or off")]
+    [RequiresPermissions("@css/generic")]
+    public void OnBhopCommand(CCSPlayerController? player, CommandInfo commandInfo)
+    {
+        Config.AutoBhopEnabled = !Config.AutoBhopEnabled;
+        Server.PrintToChatAll($" \x04[GoldSrcMovement]\x01 AutoBhop is now {(Config.AutoBhopEnabled ? "\x04ENABLED\x01" : "\x02DISABLED\x01")}.");
         
         string configPath = Path.Combine(ModuleDirectory, "GoldSrcMovement.json");
         File.WriteAllText(configPath, JsonSerializer.Serialize(Config, new JsonSerializerOptions { WriteIndented = true }));
